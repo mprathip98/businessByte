@@ -9,3 +9,4 @@ class Members(models.Model):
 
     def __str__(self):
         return self.fname + " " + self.lname
+

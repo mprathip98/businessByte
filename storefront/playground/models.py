@@ -1,6 +1,6 @@
 from django.db import models
 
-class Members(models.Model):
+class Member(models.Model):
     fname = models.CharField(max_length=50)
     lname = models.CharField(max_length=50)
     email = models.EmailField(max_length=100)

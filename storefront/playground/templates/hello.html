@@ -1,5 +1,7 @@
-{% if name %}
-    <h1>Hello World {{name}} </h1>
-{% else %}
-    <h1>Hello World</h1>
-{%endif%}
+<h1>Member's Database</h1>
+{%for item in all%}
+    <strong>{{ item.fname }}  {{item.lname}}</strong> <br/>
+    Email: {{item.email}} <br/>
+    Age: {{ item.age }}<br/> </br>
+    <hr/>
+{% endfor %}

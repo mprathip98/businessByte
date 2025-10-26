@@ -7,3 +7,6 @@ def say_hello(request):
     allMembers = Member.objects.all
     print(allMembers)
     return render(request, 'hello.html', {'all':allMembers})
+
+def join(request):
+    return render(request, 'join.html', {})

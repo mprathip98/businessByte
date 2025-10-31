@@ -9,4 +9,4 @@ def say_hello(request):
     return render(request, 'hello.html', {'all':allMembers})
 
 def join(request):
-    return render(request, 'join.html', {})
+    return render(request, 'join.html')

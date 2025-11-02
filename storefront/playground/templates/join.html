@@ -1,13 +1,21 @@
 {% extends "base.html" %}
+
 {% block content %}
-<fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-  <legend class="fieldset-legend">Login</legend>
+    <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <div class="card-body">
+            <fieldset class="fieldset">
+                <h1 class="text-2xl font-bold" align="center">Join Today!</h1>
 
-  <label class="label">Email</label>
-  <input type="email" class="input" placeholder="Email" />
+                <label class="label">Email</label>
+                <input type="email" class="input" placeholder="Email" />
 
-  <label class="label">Password</label>
-  <input type="password" class="input" placeholder="Password" />
+                <label class="label">Password</label>
+                <input type="password" class="input" placeholder="Password" />
+                <div><a class="link link-hover">Forgot password?</a></div>
 
-  <button class="btn btn-neutral mt-4">Login</button>
-</fieldset>{% endblock %}
+                <button class="btn btn-neutral mt-4" type="submit">Login</button>
+            </fieldset>
+        </div>
+    </div>
+{% endblock %}
+

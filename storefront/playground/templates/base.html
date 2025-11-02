@@ -12,6 +12,20 @@
 
 </head>
 <body>
+<br/>
+<br/>
+<br>
+{% if messages %}
+    {% for message in messages %}
+<div class="toast toast-top toast-start">
+
+  <div class="alert alert-success">
+    <span>{{ message }}</span>
+  </div>
+</div>
+    {% endfor %}
+{% endif %}
+
 {% block content %}
 {% endblock %}
 </body>

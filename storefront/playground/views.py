@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Member
 from .forms import Memberform
+from django.contrib import messages
 
 
 def say_hello(request):
@@ -13,7 +14,8 @@ def join(request):
         form = Memberform(request.POST or None)
         if form.is_valid():
             form.save()
-        return render(request, "join.html", {})
+        messages.success(request, ("Your form has been submitted"))
+        return redirect('hello')
 
     else:
         return render(request, 'join.html', {})

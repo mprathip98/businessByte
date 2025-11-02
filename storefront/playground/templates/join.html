@@ -1,21 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <div class="flex justify-center items-center h-screen">
     <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <div class="card-body">
             <fieldset class="fieldset">
-                <h1 class="text-2xl font-bold" align="center">Join Today!</h1>
+
+                <form method="POST" >
+
+                <h1 class="text-2xl font-bold mb-2" align="center">Join Today!</h1>
+
+                <label class="label">First Name</label>
+                <input type="text" class="input  mb-2" align="center" placeholder="John" name="fname"/>
+
+                <label class="label">Last Name</label>
+                <input type="text" class="input  mb-2" placeholder="Doe" name="lname" align="center"/>
+
+                <label class="label">Age</label>
+                <input type="number" class="input  mb-2" placeholder="26" name="age" align="center"/>
 
                 <label class="label">Email</label>
-                <input type="email" class="input" placeholder="Email" />
+                <input type="email" class="input  mb-2" placeholder="bob@gmail.com" name="email" align="center"/>
 
                 <label class="label">Password</label>
-                <input type="password" class="input" placeholder="Password" />
-                <div><a class="link link-hover">Forgot password?</a></div>
+                <input type="password" class="input  mb-2" placeholder="Password" name="passwd" align="center"/>
+                <button class="btn btn-neutral mt-6 btn-block" type="submit" align="center">Login</button>
 
-                <button class="btn btn-neutral mt-4" type="submit">Login</button>
+                </form>
+
             </fieldset>
         </div>
+    </div>
     </div>
 {% endblock %}
 

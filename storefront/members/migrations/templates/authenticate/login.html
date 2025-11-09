@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="flex justify-center items-center h-screen">
+    <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <div class="card-body">
+            <fieldset class="fieldset">
+
+                <form method="POST"  action="{% url 'join' %}">
+                    {% csrf_token %}
+
+                <h1 class="text-2xl font-bold mb-2" align="center">Login In</h1>
+
+
+                <button class="btn btn-neutral mt-6 btn-block" type="submit" align="center">Login</button>
+
+                </form>
+
+            </fieldset>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+

@@ -3,4 +3,5 @@ from django.http import HttpResponse
 from django.contrib import messages
 
 def initial(request):
-    return HttpResponse('Initial Page')
+    return render(request, "home.html")
+

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html data-theme="winter">
 <head>
-    <title>My Django App</title>
+    <title>Neibor | Home</title>
     {% load static %}
 <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -16,31 +16,32 @@
 </head>
 <body>
 
-<div class="navbar bg-base-100 shadow-sm">
+<div class="navbar bg-base-100 shadow-sm pl-10 pr-10 fixed" >
     <div class="navbar-start">
         <div class="dropdown">
             <div tabindex="0" role="button", class="btn btn-ghost btn-circle">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /> </svg>
+                <svg style="" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /> </svg>
             </div>
             <ul
                 tabindex="-1"
                 class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                <li><a>Home</a></li>
+                <li><a href="">Home</a></li>
                 <li><a>Explore</a></li>
                 <li><a>About</a></li>
             </ul>
         </div>
     </div>
-    <div class="navbar-center">
+    <div class="navbar-center justify-center ">
+
         <img src="{% static 'neiborLogoWhite.png' %}" width="25%">
 
     </div>
     <div class="navbar-end">
-            <a class="btn btn-outline">Login</a>
-
-            <a class="btn btn-neutral">Register</a>
+            <BUTTON class="btn btn-outline" style="margin-right:3%"> Login</BUTTON>
+            <a class="btn btn-neutral" style="margin-right:3%">Register</a>
     </div>
 </div>
+
 
 
 </body>

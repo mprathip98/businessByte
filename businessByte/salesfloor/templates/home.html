@@ -16,6 +16,8 @@
 </head>
 <body>
 
+
+<!-- navbar -->
 <div class="navbar bg-base-100 shadow-lg pl-10 pr-10" >
     <div class="navbar-start">
         <div class="dropdown">
@@ -26,7 +28,7 @@
                 tabindex="-1"
                 class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                 <li><a href="">Home</a></li>
-                <li><a>Explore</a></li>
+                <li><a href="#explore">Explore</a></li>
                 <li><a>About</a></li>
             </ul>
         </div>
@@ -42,8 +44,11 @@
     </div>
 </div>
 <br>
-<div class="flex w-full h-full flex-col lg:flex-row p-20 ">
-    <div class="pl-10">
+
+
+<!-- intro  -->
+<div class="flex w-full  h-full flex-col lg:flex-row p-20 ">
+    <div class="pl-15">
         <span class="text-rotate text-8xl font-bold duration-6000">
             <span class="justify-items-left">
                 <span class="text-orange-600">EXPLORE</span>
@@ -61,10 +66,17 @@
         <button class="btn btn-neutral btn-lg"><a class="text-xl">Get Started → </a></button>
     </div>
     <div class="justify-items-center">
-        <img src="{% static 'sidePic.png' %}"  >
+        <img src="{% static 'sidePic.png' %}"  max-width="125%" class="pt-5 hidden lg:flex" height="auto">
 
     </div>
 </div>
+<br>
+<br>
+
+<!-- explore tab  -->
+
+
+
 
 </body>
 

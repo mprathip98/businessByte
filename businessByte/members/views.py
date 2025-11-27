@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 
 def login_user(request):
-    return render(request, "authenticate/login.html", {})
+    return render(request, 'authenticate/login.html', {})
 
 def logout_user(request):
     pass

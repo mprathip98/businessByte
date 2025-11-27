@@ -1,53 +1,16 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html data-theme="winter">
-<head>
+{% block title %}
     <title>Neibor | Home</title>
-    {% load static %}
-<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/base/rootcolor.css,npm/daisyui@5/base/rootscrolllock.css,npm/daisyui@5/base/scrollbar.css,npm/daisyui@5/base/reset.css,npm/daisyui@5/base/properties.css,npm/daisyui@5/base/rootscrollgutter.css,npm/daisyui@5/base/svg.css,npm/daisyui@5/components/button.css,npm/daisyui@5/components/menu.css,npm/daisyui@5/components/checkbox.css,npm/daisyui@5/components/input.css,npm/daisyui@5/components/toggle.css,npm/daisyui@5/components/select.css,npm/daisyui@5/theme/light.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+{% endblock title %}
 
 
-
-
-</head>
-<body>
+{% block content %}
 
 
 <!-- navbar -->
-<div class="navbar bg-base-100 shadow-lg pl-10 pr-10" >
-    <div class="navbar-start">
-        <div class="dropdown">
-            <div tabindex="0" role="button", class="btn btn-ghost btn-circle">
-                <svg style="" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /> </svg>
-            </div>
-            <ul
-                tabindex="-1"
-                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                <li><a href="">Home</a></li>
-                <li><a href="#explore">Explore</a></li>
-                <li><a>About</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="navbar-center justify-center ">
 
-        <img src="{% static 'neiborLogoWhite.png' %}" width="25%">
-
-    </div>
-    <div class="navbar-end">
-            {% if user.is_authenticated %}
-                <a class="btn btn-neutral" style="margin-right:10%">Logout</a>
-            {% else %}
-                <BUTTON class="btn btn-outline" style="margin-right:3%"> Login</BUTTON>
-                <a class="btn btn-neutral" style="margin-right:3%" href="members/register_user">Register</a>
-            {% endif %}
-    </div>
-</div>
-<br>
 
 
 <!-- intro  -->
@@ -67,7 +30,7 @@
         <label class="font-bold text-7xl text-black">Around You</label>
         <br>
         <br>
-        <button class="btn btn-neutral btn-lg"><a class="text-xl">Get Started → </a></button>
+        <a class="text-xl btn btn-neutral btn-lg" href="{% url 'register' %}">Get Started → </a>
     </div>
     <div class="justify-items-center">
         <img src="{% static 'sidePic.png' %}"  max-width="125%" class="pt-5 hidden lg:flex" height="auto">
@@ -82,6 +45,5 @@
 
 
 
-</body>
 
-</html>
+{% endblock content %}

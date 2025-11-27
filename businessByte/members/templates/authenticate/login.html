@@ -11,28 +11,31 @@
             <div class="card-body">
             <fieldset class="fieldset ">
 
-                <form method="POST" action=""></form>
+                <form method="POST" action="">
                 {% csrf_token %}
 
-                    <div class="w-full flex justify-center items-center">
-                        <h1 class="text-2xl font-bold mb-2"> Sign In </h1>
-                    </div>
+                        <h1 class="text-2xl font-bold mb-4" align="center"> Sign In </h1>
+
 
                     <label class="label ml-2">Username</label>
                     <div class="w-full flex justify-center items-center">
-                        <input class="input mb-2" type="text" placeholder="John123" name="username">
+                        <input type="text" class="input"  placeholder="John123" name="username" />
                     </div>
+                    <br>
 
                     <label class="label ml-2">Password</label>
                     <div class="w-full flex justify-center items-center">
-                        <input class="input mb-2" type="password" name="password">
+                        <input type="password" class="input" placeholder="Password" name="password"/>
                     </div>
+                    <br>
 
 
-                    <button class="btn btn-neutral mt-6 btn-block" type="submit" align="center">Login</button>
+                    <button class="btn btn-neutral mt-5 btn-block" type="submit" align="center">Login</button>
                     <div class="w-full flex justify-center items-center">
-                        <a href="{% url 'register' %}" class="mt-2">Don't have an account?</a>
+                        <a href="{% url 'register' %}" class="mt-2" align="center">Don't have an account?</a>
+
                     </div>
+
                 </form>
 
             </fieldset>

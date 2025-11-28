@@ -13,7 +13,6 @@ def login_user(request):
             messages.success(request, "Login Successful")
             return redirect('home')
 
-
         else:
             messages.error(request, "Invalid Username or Password. Try Again.")
             return redirect('login')
@@ -21,7 +20,9 @@ def login_user(request):
         return render(request, 'authenticate/login.html', {})
 
 def logout_user(request):
-    pass
+    logout(request)
+    messages.success(request, "Logout Successful")
+    return redirect('home')
 
 def register_user(request):
     return render(request, "authenticate/register.html", {})

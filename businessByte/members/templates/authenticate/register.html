@@ -12,6 +12,15 @@
                 <fieldset class="fieldset">
                     <form method="POST" action="{% url 'register' %}">
                         {% csrf_token %}
+                        {% if form.errors %}
+                            <div class="toast">
+                                <div class="alert alert-success">
+                                    <span>form.errors</span>
+                                    <button class="btn btn-ghost btn-sm" onclick="this.closest('.toast').style.display='none'">✕</button>
+                                </div>
+                            </div>
+                        {% endif %}
+
                         <h1 class="text-2xl font-bold mb-4" align="center"> Registration </h1>
                         {{ form.as_p }}
                         <button class="btn btn-neutral mt-6 btn-block" type="sumbit" align="center">Register</button>

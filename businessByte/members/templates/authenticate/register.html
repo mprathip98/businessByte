@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    <div class="flex w-full justify-center items-center mt-15">
+    <div class="flex w-full justify-center items-center mt-5">
         <div class="card w-full max-w-md shrink-0 shadow-2xl">
             <div class="card-body">
                 <fieldset class="fieldset">
@@ -23,20 +23,50 @@
 
                         <h1 class="text-2xl font-bold mb-4" align="center"> Registration </h1>
 
-                        <label class="label ml-2">{{ form.first_name.label }}</label><br>
-                        {{ form.first_name }}<br><br>
+                        <label class="label ml-10">First Name</label><br>
+                        <div class="w-full flex justify-center items-center ">
+                            <div class="input" align="center">
+                                {{ form.first_name }}
+                            </div>
+                        </div><br>
 
-                        <label class="label ml-2">{{ form.last_name.label }}</label><br>
-                        {{ form.last_name }}<br><br>
 
-                        <label class="label ml-2">{{ form.username.label }}</label><br>
-                        {{ form.username }}<br><br>
 
-                        <label class="label ml-2">{{ form.password1.label }}</label><br>
-                        {{ form.password1 }}<br><br>
+                        <label class="label ml-10">Last Name</label><br>
+                        <div class="w-full flex justify-center items-center">
+                            <div class="input">
+                                {{ form.last_name }}
+                            </div>
+                        </div><br>
 
-                        <label class="label ml-2">{{ form.password2.label }}</label><br>
-                        {{ form.password2 }}<br><br>
+
+
+                        <label class="label ml-10">Username</label><br>
+                        <div class="w-full flex justify-center items-center ">
+                            <div class="input " >
+                                {{ form.username }}
+                            </div>
+                        </div><br>
+
+
+                        <label class="label ml-10">Password</label><br>
+                        <div class="w-full flex justify-center items-center ">
+                            <div class="input">
+                                {{ form.password1 }}
+                            </div>
+                        </div><br>
+
+
+
+                        <label class="label ml-10">Password Confirmation</label><br>
+                        <div class="w-full flex justify-center items-center ">
+                            <div class="input">
+                                {{ form.password2 }}
+                            </div>
+                        </div>
+
+
+
 
 
                         <button class="btn btn-neutral mt-6 btn-block" type="sumbit" align="center">Register</button>
@@ -48,7 +78,7 @@
                 </fieldset>
             </div>
         </div>
-    </div>
+    </div><br> <br>
 
 
 {% endblock content %}

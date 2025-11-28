@@ -19,11 +19,13 @@
 <body>
 {% if messages %}
     {% for message in messages %}
-        <div class="toast toast-top toast-start">
+        <div class="toast">
             <div class="alert alert-success">
                 <span>{{ message }}</span>
+                <button class="btn btn-ghost btn-sm" onclick="this.closest('.toast').style.display='none'">✕</button>
             </div>
         </div>
+
     {% endfor %}
 {% endif %}
 

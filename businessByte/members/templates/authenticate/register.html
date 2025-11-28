@@ -6,10 +6,20 @@
 
 {% block content %}
 
-    <div class="flex w-full justify-center items-center">
-        <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4 flex justify-center items-center">
-            <labe> Register </labe>
-        </fieldset>
+    <div class="flex w-full justify-center items-center mt-15">
+        <div class="card w-full max-w-sm shrink-0 shadow-2xl">
+            <div class="card-body">
+                <fieldset class="fieldset">
+                    <form method="POST" action="{% url 'register' %}">
+                        {% csrf_token %}
+                        <h1 class="text-2xl font-bold mb-4" align="center"> Registration </h1>
+                        {{ form.as_p }}
+                        <button class="btn btn-neutral mt-6 btn-block" type="sumbit" align="center">Register</button>
+
+                    </form>
+                </fieldset>
+            </div>
+        </div>
     </div>
 
 

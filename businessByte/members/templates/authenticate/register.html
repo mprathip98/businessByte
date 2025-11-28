@@ -22,7 +22,23 @@
                         {% endif %}
 
                         <h1 class="text-2xl font-bold mb-4" align="center"> Registration </h1>
-                        {{ form }}
+
+                        <label class="label ml-2">{{ form.first_name.label }}</label><br>
+                        {{ form.first_name }}<br><br>
+
+                        <label class="label ml-2">{{ form.last_name.label }}</label><br>
+                        {{ form.last_name }}<br><br>
+
+                        <label class="label ml-2">{{ form.username.label }}</label><br>
+                        {{ form.username }}<br><br>
+
+                        <label class="label ml-2">{{ form.password1.label }}</label><br>
+                        {{ form.password1 }}<br><br>
+
+                        <label class="label ml-2">{{ form.password2.label }}</label><br>
+                        {{ form.password2 }}<br><br>
+
+
                         <button class="btn btn-neutral mt-6 btn-block" type="sumbit" align="center">Register</button>
 
                     </form>

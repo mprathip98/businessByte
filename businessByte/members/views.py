@@ -40,7 +40,7 @@ def register_user(request):
             return redirect('home')
 
         else:
-            messages.error(request, "")
+            messages.error(request, "Invalid Fields. Try Again.")
             return redirect('register')
 
     else:

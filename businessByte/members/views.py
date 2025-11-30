@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from .forms import UserRegisterForm
+from django.utils.safestring import mark_safe
 
 def login_user(request):
     if request.method == "POST":
@@ -30,8 +31,6 @@ def register_user(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
@@ -40,7 +39,24 @@ def register_user(request):
             return redirect('home')
 
         else:
-            messages.error(request, "Invalid Fields. Try Again.")
+            for field, errors in form.errors.items():
+                field1 = ""
+                if field.isalnum() == True:
+                    field1 = field[:-1]
+                all_errors_list = []
+                for error_text in errors:
+                    all_errors_list.append(error_text)
+
+                errors_html = f"<strong>{field1.capitalize()}:</strong><br><ul>"
+                for item_text in all_errors_list:
+                    errors_html += f"<li>{item_text}</li>"
+                errors_html += "</ul>"
+
+                print(errors_html)
+
+                messages.error(request, mark_safe(errors_html))
+
+
             return redirect('register')
 
     else:

@@ -10,3 +10,6 @@ def initial(request):
     else:
         return render(request, "home.html")
 
+def dashboard(request):
+    return render(request, "dashboard.html")
+

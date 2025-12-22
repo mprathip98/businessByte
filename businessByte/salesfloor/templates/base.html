@@ -66,6 +66,8 @@
             <div class="navbar-end">
                     {% if user.is_authenticated %}
 
+                        {% block userfirst %}
+                        {% endblock userfirst%}
                         <a class="btn btn-neutral" style="margin-right:10%" href="{% url 'logout' %}">Logout</a>
                     {% else %}
                         <a class="btn btn-outline" style="margin-right:3%" href="{% url 'login' %}"> Login</a>

@@ -30,7 +30,12 @@
         <label class="font-bold text-7xl text-black">Around You</label>
         <br>
         <br>
-        <a class="text-xl btn btn-neutral btn-lg" href="{% url 'register' %}">Get Started → </a>
+        {% if user.is_authenticated%}
+            <a class="text-xl btn btn-neutral btn-lg" href="">Dashboard → </a>
+
+        {% else %}
+            <a class="text-xl btn btn-neutral btn-lg" href="{% url 'register' %}">Get Started → </a>
+        {% endif %}
     </div>
     <div class="justify-items-center">
         <img src="{% static 'sidePic.png' %}"  max-width="125%" class="pt-5 hidden lg:flex" height="auto">

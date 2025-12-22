@@ -6,8 +6,8 @@
 
 {% block content %}
 
-    <div class="flex w-full justify-center items-center mt-5">
-        <div class="card w-full max-w-md shrink-0 shadow-2xl">
+    <div class="flex w-full justify-center  mt-5">
+        <div class="card w-130 shrink-0 shadow-2xl">
             <div class="card-body">
                 <fieldset class="fieldset">
 
@@ -16,49 +16,61 @@
                         {% csrf_token %}
 
 
-                        <h1 class="text-2xl font-bold mb-4" align="center"> Registration </h1>
+                        <h1 class="text-2xl font-bold mb-4" align="center"> Registration </h1><br>
 
-                        <label class="label ml-10">First Name</label><br>
-                        <div class="w-full flex justify-center items-center ">
-                            <div class="input" align="center">
-                                {{ form.first_name }}
-                            </div>
-                        </div><br>
-
-
-
-                        <label class="label ml-10">Last Name</label><br>
                         <div class="w-full flex justify-center items-center">
-                            <div class="input">
-                                {{ form.last_name }}
+                            <div class="m-1">
+                                <label class="label ">First Name</label><br>
+                                <div class="input" align="center">
+                                        {{ form.first_name }}
+                                </div>
                             </div>
+                            <div class="ml-6 mr-6">
+
+                            </div>
+
+                            <div class="m-1">
+                                <label class="label justify-end w-full flex ">Last Name</label>
+                                <div class="input" align="center">
+                                        {{ form.last_name }}
+                                </div>
+                            </div> <br>
+
+                        </div><br>
+
+                        <div class="w-full flex justify-center items-center">
+                            <div class="m-1">
+                                <label class="label ">Username</label><br>
+                                <div class="input" align="center">
+                                        {{ form.username }}
+                                </div>
+                            </div>
+                            <div class="ml-6 mr-6">
+
+                            </div>
+
+                            <div class="m-1">
+                                <label class="label justify-end w-full flex ">Password</label>
+                                <div class="input" align="center">
+                                        {{ form.password1 }}
+                                </div>
+                            </div> <br>
+
                         </div><br>
 
 
 
-                        <label class="label ml-10">Username</label><br>
-                        <div class="w-full flex justify-center items-center ">
-                            <div class="input " >
-                                {{ form.username }}
+
+
+
+                        <div class="w-full flex justify-center items-center">
+                            <div>
+                                <label class="label flex justify-center items-center">Password Confirmation</label>
+                                <div class="input w-60">
+                                    {{ form.password2 }}
+                                </div>
                             </div>
                         </div><br>
-
-
-                        <label class="label ml-10">Password</label><br>
-                        <div class="w-full flex justify-center items-center ">
-                            <div class="input">
-                                {{ form.password1 }}
-                            </div>
-                        </div><br>
-
-
-
-                        <label class="label ml-10">Password Confirmation</label><br>
-                        <div class="w-full flex justify-center items-center ">
-                            <div class="input">
-                                {{ form.password2 }}
-                            </div>
-                        </div>
 
 
 

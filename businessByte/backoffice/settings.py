@@ -118,13 +118,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 # Define where uploaded files will be stored on the server's file system
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Define the public URL prefix for these files
 MEDIA_URL = '/media/'
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

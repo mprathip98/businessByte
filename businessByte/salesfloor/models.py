@@ -7,6 +7,6 @@ class Businesses(models.Model):
     category = models.CharField(max_length=100)
     description = models.CharField(max_length=250)
     address = models.CharField(max_length=250)
-    rating = models.FloatField()
+    rating = models.FloatField(null=True , blank=True)
 
 

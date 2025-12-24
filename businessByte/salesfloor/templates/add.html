@@ -6,8 +6,8 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="flex w-full justify-center items-center mt-15">
-        <div class="card w-full max-w-md shrink-0 shadow-2xl">
+    <div class="flex w-full justify-center items-center mt-7">
+        <div class="card w-full max-w-xl shrink-0 shadow-2xl">
             <div class="card-body">
             <fieldset class="fieldset ">
 
@@ -15,36 +15,42 @@
 
                 {% csrf_token %}
 
-                    <h1 class="text-2xl font-bold mb-4" align="center"> Add a Business </h1>
+                    <h1 class="text-2xl font-bold mb-10" align="center"> Add a Business </h1>
 
 
-                    <label class="label ml-10 mb-1">Business Name</label>
+                    <label class="label ml-27 mb-1" required title="required">Business Name</label>
                     <div class="w-full flex justify-center items-center">
                         <input type="text" class="input"  placeholder="" name="name" />
                     </div>
                     <br>
 
-                    <label class="label ml-10 mb-1">File Upload</label>
+                    <label class="label ml-27 mb-1">Image</label>
                     <div class="w-full flex justify-center items-center">
-                        <input type="password" class="input" placeholder="Password" name="password"/>
+                        <input type="file" class="file-input" accept="image/png, image/jpg, image/jpeg" name="image"/>
                     </div>
                     <br>
 
-                    <label class="label ml-10 mb-1">Category</label>
+                    <label class="label ml-27 mb-1">Category</label>
                     <div class="w-full flex justify-center items-center">
-                        <input type="password" class="input" placeholder="Password" name="password"/>
+                        <select class="select" name="category">
+                            <option disabled selected>Pick a Category</option>
+                            <option>Food</option>
+                            <option>Retail</option>
+                            <option>Services</option>
+                        </select>
+
                     </div>
                     <br>
 
-                    <label class="label ml-10 mb-1">Description</label>
+                    <label class="label ml-27 mb-1">Description</label>
                     <div class="w-full flex justify-center items-center">
-                        <input type="text" class="input"  placeholder="" name="name" />
+                        <input type="text" class="input"  placeholder="" name="description" />
                     </div>
                     <br>
 
-                    <label class="label ml-10 mb-1">Address</label>
+                    <label class="label ml-27 mb-1">Address</label>
                     <div class="w-full flex justify-center items-center">
-                        <input type="password" class="input" placeholder="Password" name="password"/>
+                        <input type="text" class="input" placeholder="" name="address"/>
                     </div>
                     <br>
 
@@ -59,4 +65,6 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
 {% endblock content %}

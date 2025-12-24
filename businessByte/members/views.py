@@ -13,7 +13,7 @@ def login_user(request):
         if user is not None:
             login(request, user)
             messages.success(request, "Login Successful")
-            return redirect('home')
+            return redirect('dashboard')
 
         else:
             messages.error(request, "Invalid Username or Password. Try Again.")
@@ -36,7 +36,7 @@ def register_user(request):
             user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(request, "Registration Successful")
-            return redirect('home')
+            return redirect('dashboard')
 
         else:
             for field, errors in form.errors.items():

@@ -4,6 +4,7 @@ from django.db import models
 class Businesses(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='businesses/')
+    category = models.CharField(max_length=100)
     description = models.CharField(max_length=250)
     address = models.CharField(max_length=250)
     rating = models.FloatField()

@@ -6,21 +6,57 @@
 {% endblock title %}
 
 {% block content %}
+    <div class="flex w-full justify-center items-center mt-15">
+        <div class="card w-full max-w-md shrink-0 shadow-2xl">
+            <div class="card-body">
+            <fieldset class="fieldset ">
 
-    <div class=" w-full items-center justify-center flex mt-10">
-        <div class="card w-full max-w-2xl shrink-0 shadow-2xl">
-            <div class="card-body ">
-                <h1 class="text-2xl font-bold" align="center">Add a Business</h1>
-                <fieldset class="fieldset">
-                    <form method="POST" action="{% url 'add' %}">
+                <form method="POST" action="">
 
-                    </form>
+                {% csrf_token %}
 
-                </fieldset>
+                    <h1 class="text-2xl font-bold mb-4" align="center"> Add a Business </h1>
 
 
+                    <label class="label ml-10 mb-1">Business Name</label>
+                    <div class="w-full flex justify-center items-center">
+                        <input type="text" class="input"  placeholder="" name="name" />
+                    </div>
+                    <br>
+
+                    <label class="label ml-10 mb-1">File Upload</label>
+                    <div class="w-full flex justify-center items-center">
+                        <input type="password" class="input" placeholder="Password" name="password"/>
+                    </div>
+                    <br>
+
+                    <label class="label ml-10 mb-1">Category</label>
+                    <div class="w-full flex justify-center items-center">
+                        <input type="password" class="input" placeholder="Password" name="password"/>
+                    </div>
+                    <br>
+
+                    <label class="label ml-10 mb-1">Description</label>
+                    <div class="w-full flex justify-center items-center">
+                        <input type="text" class="input"  placeholder="" name="name" />
+                    </div>
+                    <br>
+
+                    <label class="label ml-10 mb-1">Address</label>
+                    <div class="w-full flex justify-center items-center">
+                        <input type="password" class="input" placeholder="Password" name="password"/>
+                    </div>
+                    <br>
+
+
+
+                    <button class="btn btn-neutral mt-5 btn-block" type="submit" align="center">Create</button>
+
+
+                </form>
+
+            </fieldset>
             </div>
         </div>
     </div>
-
 {% endblock content %}

@@ -4,12 +4,17 @@ from django.contrib import messages
 from .models import Businesses
 from .forms  import BusinessesForm
 
+
 def initial(request):
     return render(request, "home.html")
 
 def dashboard(request):
     if request.user.is_authenticated:
-        return render(request, "dashboard.html")
+        allBusinesses = Businesses.objects.all
+
+
+
+        return render(request, "dashboard.html", {"allBusinesses": allBusinesses})
     else:
         return redirect("home")
 

@@ -25,7 +25,15 @@
 
                                 <div class="flex w-full mt-3">
 
-
+                                    <div class="rating">
+                                        {% for numbers in number_range %}
+                                            {% if item.rating == numbers %}
+                                                <div class="mask mask-star" aria-label="{{numbers}} star" aria-current="true"></div>
+                                            {% else %}
+                                                <div class="mask mask-star" aria-label="{{numbers}} star"></div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
 
                                     <div class="card-actions justify-end w-full flex ">
                                         <div class="badge badge-outline ">{{item.category}}</div>

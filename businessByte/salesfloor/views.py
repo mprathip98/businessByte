@@ -11,10 +11,9 @@ def initial(request):
 def dashboard(request):
     if request.user.is_authenticated:
         allBusinesses = Businesses.objects.all
+        number_range = range(1, 6)
 
-
-
-        return render(request, "dashboard.html", {"allBusinesses": allBusinesses})
+        return render(request, "dashboard.html", {"allBusinesses": allBusinesses, "number_range": number_range})
     else:
         return redirect("home")
 

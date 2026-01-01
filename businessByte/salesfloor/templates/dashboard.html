@@ -8,23 +8,56 @@
 {% block content %}
     <div class="flex w-full  justify-center ">
         <div class="card w-full max-w-2xs shrink-0 shadow-2xl bg-blue-200 mr-8 m-5 mt-10 h-100">
-hello
+            hello
         </div>
 
         <div class="card w-full max-w-5xl shrink-0  m-5">
             <div class="grid grid-cols-1 grid-cols-3 ">
 
                 {% for item in allBusinesses %}
-                        <div class="card bg-base-100 w-75 shadow-sm m-5">
+                        <div class="card bg-base-100 w-75 shadow-lg m-5" >
                             <figure class="bg-black">
                                 <img src="{{ item.image.url }}" alt="{{ item.name }}" class="w-80 h-40"/>
                             </figure>
                             <div class="card-body">
                                 <h2 class="card-title">{{item.name}}</h2>
                                 <p>{{item.description}}</p>
-                                <div class="card-actions justify-end">
-                                    <div class="badge badge-outline">{{item.category}}</div>
+
+                                <div class="flex w-full mt-3">
+
+
+
+                                    <div class="card-actions justify-end w-full flex ">
+                                        <div class="badge badge-outline ">{{item.category}}</div>
+                                    </div>
+
                                 </div>
+
+
+
+
+
+                                    <button class="btn btn-soft btn-secondary btn-sm mt-2" onclick=infoModal.showModal()>Learn More → </button>
+                                    <dialog id="infoModal" class="modal">
+                                        <div class="modal-box">
+                                            <form method="dialog">
+                                                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">x</button>
+                                            </form>
+                                            <h3 class="text-lg font-bold">Hello</h3>
+
+                                        </div>
+
+                                    </dialog>
+
+
+
+
+
+
+
+
+
+
 
                             </div>
                         </div>

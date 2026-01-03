@@ -15,7 +15,7 @@
             <div class="grid grid-cols-1 grid-cols-3 ">
 
                 {% for item in allBusinesses %}
-                        <div class="card bg-base-100 w-75 shadow-lg m-5" >
+                        <div class="card bg-base-100 w-75 shadow-2xl m-5" >
                             <figure class="bg-black">
                                 <img src="{{ item.image.url }}" alt="{{ item.name }}" class="w-80 h-40"/>
                             </figure>
@@ -43,26 +43,56 @@
 
 
 
+                                <label class="btn btn-soft btn-secondary btn-sm mt-2" for="infoModal">Learn More → </label>
+                                <input type="checkbox" id="infoModal" class="modal-toggle"/>
+                                <div class="modal" role="dialog">
+                                    <div class="modal-box max-w-6xl">
+                                        <h3></h3>
+                                        <div class="modal-action">
+                                            <label for="infoModal" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">x</label>
+                                        </div>
 
 
-                                    <button class="btn btn-soft btn-secondary btn-sm mt-2" onclick=infoModal.showModal()>Learn More → </button>
-                                    <dialog id="infoModal" class="modal">
-                                        <div class="modal-box">
-                                            <form method="dialog">
-                                                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">x</button>
-                                            </form>
-                                            <h3 class="text-lg font-bold">Hello</h3>
+                                        <div class="flex w-full justify-center">
+                                            <div class="mt-5 mb-5 mr-10">
+                                                <figure class="bg-black">
+                                                    <img src="{{ item.image.url }}" alt="{{ item.name }}" class="w-170 h-90"/>
+                                                </figure><br>
+                                                <h2 class="card-title text-2xl">{{item.name}}</h2>
+                                                <p>{{item.description}}</p>
+                                            </div>
+                                            <div class="card m-5 ml-5 mt-7 mr-5">
+
+                                                <h2 class="card-title text-xl">Address:</h2>
+                                                <h1 class="text-md">{{item.address}}</h1>
+                                                <br>
+                                                <h2 class="card-title text-xl">Rating:</h2>
+                                                <div class="rating">
+                                                    {% for numbers in number_range %}
+                                                        {% if item.rating == numbers %}
+                                                            <div class="mask mask-star" aria-label="{{numbers}} star" aria-current="true"></div>
+                                                        {% else %}
+                                                            <div class="mask mask-star" aria-label="{{numbers}} star"></div>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </div> <br>
+                                                <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+                                                  <legend class="fieldset-legend">Rate this Business</legend>
+
+
+                                                  <button class="btn btn-neutral mt-4">Submit</button>
+                                                </fieldset>
+
+
+                                            </div>
 
                                         </div>
 
-                                    </dialog>
 
 
-
-
-
-
-
+                                    </div>
+                                    <label class="modal-backdrop" for="infoModal">Close</label>
+                                </div>
 
 
 
@@ -74,5 +104,5 @@
             </div>
         </div>
 
-    </div>
+    </div><br><br>
 {% endblock content%}

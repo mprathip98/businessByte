@@ -132,6 +132,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-print(f"DEBUG is: {DEBUG}")
-print(f"MEDIA_ROOT is: {MEDIA_ROOT}")
 

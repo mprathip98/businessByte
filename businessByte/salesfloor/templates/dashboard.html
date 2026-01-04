@@ -74,8 +74,12 @@
                                                             <div class="mask mask-star" aria-label="{{numbers}} star"></div>
                                                         {% endif %}
                                                     {% endfor %}
-                                                </div> <br><br>
 
+                                                </div>
+                                                <h1 class="ml-1 mt-1">{{item.ratingNumber}} Reviews</h1>
+
+
+                                                <br>
                                                 <h2 class="card-title text-xl">Been here before?</h2>
 
 
@@ -85,12 +89,13 @@
 
 
 
-                                                <form >
+                                                <form method="POST">
+                                                    {% csrf_token %}
                                                     <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
 
                                                         <legend class="fieldset-legend">Rate this Business</legend>
                                                         <div class="rating">
-                                                            <input type="radio" name="rating" class="rating-hidden" checked value="{{item.name}}"/>
+                                                            <input type="radio" name="busiName" class="rating-hidden" checked value="{{item.name}}"/>
                                                             <input type="radio" name="rating" class="rating-hidden"/>
                                                             <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" aria-label="1 star" value="1"/>
                                                             <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" aria-label="2 star" value="2" />

@@ -8,7 +8,9 @@ class Businesses(models.Model):
     description = models.CharField(max_length=250)
     address = models.CharField(max_length=250)
     rating = models.IntegerField(null=True , blank=True, default=0)
+    #added this new field
     ratingNumber = models.IntegerField(null=True , blank=True, default=0)
+
 
 
 

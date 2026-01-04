@@ -50,8 +50,6 @@ def dashboard(request):
             business.save()
 
 
-
-
         return render(request, "dashboard.html", {"allBusinesses": allBusinesses, "number_range": number_range})
     else:
         return redirect("home")

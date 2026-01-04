@@ -28,20 +28,14 @@ def dashboard(request):
             currentCount = business.ratingNumber
             currentSum = currentCount * business.rating
 
-            print(f"old sum = {currentSum}")
-            print(f"old count = {currentCount}")
-
 
             newSum = currentSum + int(formRating)
             newCount = currentCount + 1
-            print(newSum/newCount)
-            print(round(newSum/newCount))
-            newAverage = newSum/newCount
+            avg = newSum / newCount
 
-
-            print(f"new sum = {newSum}")
-            print(f"new count = {newCount}")
-            print(f"new average = {newAverage}")
+            print(avg)
+            print(round(avg))
+            newAverage = round(newSum/newCount)
 
 
             business.rating = newAverage

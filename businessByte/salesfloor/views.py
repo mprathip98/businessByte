@@ -2,6 +2,8 @@ from gc import get_objects
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
+from django.utils.datastructures import MultiValueDictKeyError
+
 from .models import Businesses
 from .forms  import BusinessesForm
 from . import models
@@ -20,28 +22,41 @@ def dashboard(request):
         allBusinesses = Businesses.objects.all
         number_range = range(1, 6)
         if request.method == "POST":
-            BusinessName = request.POST["busiName"]
-            formRating = request.POST["rating"]
+            if request.POST.get("action") == "ratingForm":
+                BusinessName = request.POST["busiName"]
+                formRating = request.POST["rating"]
+                business = get_object_or_404(Businesses, name=BusinessName)
+                currentCount = business.ratingNumber
+                currentSum = currentCount * business.rating
+                newSum = currentSum + int(formRating)
+                newCount = currentCount + 1
+                newAverage = round(newSum/newCount)
+                business.rating = newAverage
+                business.ratingNumber = newCount
+                business.save()
+            elif request.POST.get("action") == "filterForm":
+                filteredBusinesses = []
 
-            business = get_object_or_404(Businesses, name=BusinessName)
-
-            currentCount = business.ratingNumber
-            currentSum = currentCount * business.rating
-
-
-            newSum = currentSum + int(formRating)
-            newCount = currentCount + 1
-            avg = newSum / newCount
-
-            print(avg)
-            print(round(avg))
-            newAverage = round(newSum/newCount)
+                try:
+                    categoryFilter = request.POST["userCategory"]
+                except MultiValueDictKeyError:
+                    categoryFilter = ""
+                try:
+                    ratingFilter = request.POST["rating"]
+                except MultiValueDictKeyError:
+                    ratingFilter = ""
 
 
-            business.rating = newAverage
-            business.ratingNumber = newCount
+                if categoryFilter != "" and ratingFilter != "":
+                    filteredBusinesses = Businesses.objects.filter(category=categoryFilter, rating=int(ratingFilter))
+                elif ratingFilter != "":
+                    filteredBusinesses = Businesses.objects.filter(rating=int(ratingFilter))
+                elif categoryFilter != "":
+                    filteredBusinesses = Businesses.objects.filter(category=categoryFilter)
+                elif ratingFilter == "" and categoryFilter == "":
+                    filteredBusinesses = allBusinesses
 
-            business.save()
+                allBusinesses = filteredBusinesses
 
 
         return render(request, "dashboard.html", {"allBusinesses": allBusinesses, "number_range": number_range})

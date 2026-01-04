@@ -7,9 +7,39 @@
 
 {% block content %}
     <div class="flex w-full  justify-center ">
-        <div class="card w-full max-w-2xs shrink-0 shadow-2xl bg-blue-200 mr-8 m-5 mt-10 h-100">
-            hello
+        <div class="card w-full max-w-xs shrink-0 shadow-2xl mt-10 h-90 ml-5">
+            <div class="card-body w-full justify-center">
+
+                <form method="POST" name="filter">
+                    {% csrf_token %}
+
+                    <h1 class="text-2xl font-bold mb-4" align="center"> Filter </h1><br>
+                    <h1 class="text-md font-semibold ml-1 mb-1" align="left"> By Category </h1>
+                    <select class="select" name="userCategory">
+                        <option disabled selected>Pick a category</option>
+                        <option>Food</option>
+                        <option>Services</option>
+                        <option>Retail</option>
+                    </select> <br> <br>
+
+                    <h1 class="text-md font-semibold ml-1 mb-2" > By Rating </h1>
+                    <div class="rating rating-lg">
+                        <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" aria-label="1 star" value="1"/>
+                        <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" aria-label="2 star" value="2" />
+                        <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" aria-label="3 star" value="3"/>
+                        <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" aria-label="4 star" value="4"/>
+                        <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" aria-label="5 star" value="5" />
+                    </div><br><br>
+
+                    <button class="btn btn-secondary items-center mt-3 w-full" type="submit" value="filterForm" name="action"> Apply </button>
+                </form>
+
+            </div>
         </div>
+
+
+
+
 
         <div class="card w-full max-w-5xl shrink-0  m-5">
             <div class="grid grid-cols-1 grid-cols-3 ">
@@ -84,7 +114,7 @@
 
 
 
-                                                <form method="POST">
+                                                <form method="POST" name="rate">
                                                     {% csrf_token %}
                                                     <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
 
@@ -98,7 +128,7 @@
                                                             <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" aria-label="4 star" value="4"/>
                                                             <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" aria-label="5 star" value="5" />
                                                         </div>
-                                                        <button class="btn btn-neutral mt-4" type="submit">Submit</button>
+                                                        <button class="btn btn-neutral mt-4" type="submit" value="ratingForm" name="action">Submit</button>
                                                     </fieldset>
                                                 </form>
 
@@ -120,5 +150,6 @@
             </div>
         </div>
 
-    </div><br><br>
+    </div>
+    <br><br>
 {% endblock content%}

@@ -11,5 +11,6 @@ class Businesses(models.Model):
     ratingNumber = models.IntegerField(null=True , blank=True, default=0)
 
 
-
-
+class favorites(models.Model):
+    name = models.CharField(max_length=100)
+    business = models.CharField(max_length=100)

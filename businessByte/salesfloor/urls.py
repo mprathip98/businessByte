@@ -7,6 +7,8 @@ urlpatterns = [
     path('', views.initial, name='home'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path("add/", views.add, name="add"),
+    path("favorites/", views.favorites, name="favorites"),
+    path("coupons/", views.coupons, name="coupons"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

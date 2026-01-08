@@ -46,7 +46,6 @@ def dashboard(request):
                 except MultiValueDictKeyError:
                     ratingFilter = ""
 
-
                 if categoryFilter != "" and ratingFilter != "":
                     filteredBusinesses = Businesses.objects.filter(category=categoryFilter, rating=int(ratingFilter))
                 elif ratingFilter != "":
@@ -57,6 +56,10 @@ def dashboard(request):
                     filteredBusinesses = allBusinesses
 
                 allBusinesses = filteredBusinesses
+            elif request.POST.get("action") == "favorite":
+                business = request.POST["businessName"]
+                userName = request.user.username
+
 
 
         return render(request, "dashboard.html", {"allBusinesses": allBusinesses, "number_range": number_range})
@@ -82,3 +85,10 @@ def add(request):
             return render(request, "add.html")
     else:
             return redirect("home")
+
+
+def favorites(request):
+    return render(request, "favorites.html")
+
+def coupons(request):
+    return render(request, "coupons.html")

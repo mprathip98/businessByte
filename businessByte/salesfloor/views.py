@@ -9,12 +9,10 @@ from .forms  import BusinessesForm
 from . import models
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import F
+from .models import userFavoritesBusiness
 
 def initial(request):
     return render(request, "home.html")
-
-
-
 
 
 def dashboard(request):
@@ -57,17 +55,17 @@ def dashboard(request):
 
                 allBusinesses = filteredBusinesses
             elif request.POST.get("action") == "favorite":
-                business = request.POST["businessName"]
-                userName = request.user.username
+
+                businessRequest = request.POST["businessName"]
+                userNameRequest = request.user.username
+                newEntry = userFavoritesBusiness(name = userNameRequest, business=businessRequest)
+                newEntry.save()
 
 
 
         return render(request, "dashboard.html", {"allBusinesses": allBusinesses, "number_range": number_range})
     else:
         return redirect("home")
-
-
-
 
 
 def add(request):
@@ -88,7 +86,21 @@ def add(request):
 
 
 def favorites(request):
-    return render(request, "favorites.html")
+    needToLoadBusinesses = []
+    number_range = range(1, 6)
+    favoritesAll = userFavoritesBusiness.objects.filter(name=request.user.username)
+    newfav = favoritesAll.values_list("business", flat=True)
+    busi = Businesses.objects.all()
+
+    favorite_businesses = Businesses.objects.filter(
+        #the __ asks the orm to retrieve all the fields where the values are equal to the values in the newFav list
+        name__in=newfav
+    )
+
+    print(favorite_businesses)
+
+    return render(request, "favorites.html", {"allBusinesses": favorite_businesses, "number_range": number_range})
+
 
 def coupons(request):
     return render(request, "coupons.html")

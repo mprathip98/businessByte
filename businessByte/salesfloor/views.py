@@ -3,11 +3,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
 from django.utils.datastructures import MultiValueDictKeyError
-
 from .models import Businesses
 from .forms  import BusinessesForm
 from . import models
-from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import F
 from .models import userFavoritesBusiness
 
@@ -103,4 +101,7 @@ def favorites(request):
 
 
 def coupons(request):
-    return render(request, "coupons.html")
+    toast=False
+    if request.method == "POST":
+        toast = True
+    return render(request, "coupons.html", {"toast": toast})

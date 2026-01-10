@@ -9,9 +9,3 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'password1', 'password2']
-
-#
-# class favoritesForm(forms.ModelForm):
-#     class Meta:
-#         model = favorites
-#         fields = ["businessName", "nameUser"]

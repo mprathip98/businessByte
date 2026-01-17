@@ -9,7 +9,7 @@ urlpatterns = [
     path("add/", views.add, name="add"),
     path("favorites/", views.favorites, name="favorites"),
     path("coupons/", views.coupons, name="coupons"),
-    path("instructions/", views.instructions, name="instructions")
+    path("instruction/", views.instruction, name="instruction")
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

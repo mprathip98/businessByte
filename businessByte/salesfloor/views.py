@@ -105,3 +105,6 @@ def coupons(request):
     if request.method == "POST":
         toast = True
     return render(request, "coupons.html", {"toast": toast})
+
+def instruction(request):
+    return render(request, "instruction.html")

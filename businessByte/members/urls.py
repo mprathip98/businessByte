@@ -3,6 +3,7 @@ from . import views
 from django.conf import settings # Import settings
 from django.conf.urls.static import static
 
+#for navigating into pages
 urlpatterns = [
     path("login_user/", views.login_user, name="login"),
     path("logout_user/", views.logout_user, name="logout"),

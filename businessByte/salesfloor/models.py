@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+# business model.
 class Businesses(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='businesses/')
@@ -10,7 +10,7 @@ class Businesses(models.Model):
     rating = models.IntegerField(null=True , blank=True, default=0)
     ratingNumber = models.IntegerField(null=True , blank=True, default=0)
 
-
+#favorites model
 class userFavoritesBusiness(models.Model):
     name = models.CharField(max_length=100)
     business = models.CharField(max_length=100)

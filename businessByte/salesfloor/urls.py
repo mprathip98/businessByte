@@ -3,6 +3,8 @@ from . import views
 from django.conf import settings # Import settings
 from django.conf.urls.static import static
 
+
+#for navigating into each page
 urlpatterns = [
     path('', views.initial, name='home'),
     path('dashboard/', views.dashboard, name='dashboard'),
@@ -12,4 +14,5 @@ urlpatterns = [
     path("instruction/", views.instruction, name="instruction")
 ]
 
+#to render pictures for each business
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

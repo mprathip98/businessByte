@@ -1,3 +1,4 @@
+# all of the libraries needed
 from gc import get_objects
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
@@ -9,14 +10,17 @@ from . import models
 from django.db.models import F
 from .models import userFavoritesBusiness
 
+#rendering home page
 def initial(request):
     return render(request, "home.html")
 
 
+#dashboard view
 def dashboard(request):
     if request.user.is_authenticated:
         allBusinesses = Businesses.objects.all
         number_range = range(1, 6)
+        #the first if statement for the ratings for each business
         if request.method == "POST":
             if request.POST.get("action") == "ratingForm":
                 BusinessName = request.POST["busiName"]
@@ -30,6 +34,8 @@ def dashboard(request):
                 business.rating = newAverage
                 business.ratingNumber = newCount
                 business.save()
+
+            #this is to filter the businesses
             elif request.POST.get("action") == "filterForm":
                 filteredBusinesses = []
 
@@ -52,6 +58,9 @@ def dashboard(request):
                     filteredBusinesses = allBusinesses
 
                 allBusinesses = filteredBusinesses
+
+
+            #this is to add a business to favorites
             elif request.POST.get("action") == "favorite":
 
                 businessRequest = request.POST["businessName"]
@@ -66,8 +75,10 @@ def dashboard(request):
         return redirect("home")
 
 
+#add a business page
 def add(request):
     if request.user.is_authenticated:
+        #inputting the business entered into the database
         if request.method == "POST":
             form = BusinessesForm(request.POST, request.FILES)
             if form.is_valid():
@@ -82,7 +93,7 @@ def add(request):
     else:
             return redirect("home")
 
-
+#this is for the favorites page
 def favorites(request):
     needToLoadBusinesses = []
     number_range = range(1, 6)
@@ -99,12 +110,13 @@ def favorites(request):
 
     return render(request, "favorites.html", {"allBusinesses": favorite_businesses, "number_range": number_range})
 
-
+#this is for the coupons page
 def coupons(request):
     toast=False
     if request.method == "POST":
         toast = True
     return render(request, "coupons.html", {"toast": toast})
 
+#rendering instructions page
 def instruction(request):
     return render(request, "instruction.html")

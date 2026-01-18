@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import UserRegisterForm
 from django.utils.safestring import mark_safe
 
+#login + authentication view
 def login_user(request):
     if request.method == "POST":
         username = request.POST["username"]
@@ -21,11 +22,14 @@ def login_user(request):
     else:
         return render(request, 'authenticate/login.html', {})
 
+
+#for logout
 def logout_user(request):
     logout(request)
     messages.success(request, "Logout Successful")
     return redirect('home')
 
+#registering user
 def register_user(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)

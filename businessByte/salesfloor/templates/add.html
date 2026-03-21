@@ -15,8 +15,13 @@
 
                     {% csrf_token %}
 
-                    <h1 class="text-2xl font-bold mb-8" align="center"> Add a Business </h1>
+                    <h1 class="text-2xl font-bold" align="center"> Add a Business </h1>
 
+
+                    <div class="rating">
+                        <input type="text" name="owner" class=" input rating-hidden" checked value=" {{ user.username }} "/>
+                    </div>
+                    <br>
 
                     <label class="label ml-27 mb-1" required title="required">Business Name</label>
                     <div class="w-full flex justify-center items-center">

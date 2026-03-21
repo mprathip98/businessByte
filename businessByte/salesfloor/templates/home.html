@@ -16,6 +16,7 @@
 
 <!-- intro  -->
 <div class="flex w-full  h-full flex-col lg:flex-row p-20 ">
+
     <div class="pl-15">
         <span class="text-rotate text-8xl font-bold duration-6000">
             <span class="justify-items-left">
@@ -45,9 +46,58 @@
 </div>
 <br>
 <br>
+<br>
+
 
 <!-- explore tab  -->
+<div class="flex w-full bg-info h-full flex-col lg:flex-row p-20 " id="explore">
 
+    <div class="justify-items-center">
+
+        <div class="carousel w-120 ml-30 mb-5">
+            <!--slide items-->
+            <div id="item1" class="carousel-item relative w-full">
+                <img src="static/slide5.png" class="h-120 rounded-4xl border-secondary">
+            </div>
+
+            <div id="item2" class="carousel-item relative w-full">
+                <img src="static/slide4.png" class="h-120 rounded-4xl border-secondary">
+            </div>
+
+            <div id="item3" class="carousel-item relative w-full">
+                <img src="static/slide3.png" class="h-120 rounded-4xl border-secondary">
+            </div>
+
+            <div id="item4" class="carousel-item relative w-full">
+                <img src="static/slide1.png" class="h-120 rounded-4xl border-secondary">
+            </div>
+
+        </div>
+        <div class="flex w-full justify-center gap-2 py-2">
+          <a href="#item1" class="btn btn-md">1</a>
+          <a href="#item2" class="btn btn-md">2</a>
+          <a href="#item3" class="btn btn-md">3</a>
+          <a href="#item4" class="btn btn-md">4</a>
+        </div>
+
+
+    </div>
+    <div class="pl-10 mt-40">
+
+        <label class="font-bold text-7xl text-white">Start Exploring</label>
+        <label class="font-bold text-7xl text-white">Now</label>
+
+        <br>
+        <br>
+        {% if user.is_authenticated%}
+            <a class="text-xl btn btn-soft btn-lg" href="{% url 'dashboard' %}">Dashboard → </a>
+
+        {% else %}
+            <a class="text-xl btn btn-soft btn-lg" href="{% url 'register' %}">Get Started → </a>
+        {% endif %}
+    </div>
+
+</div>
 
 
 

@@ -11,7 +11,8 @@ urlpatterns = [
     path("add/", views.add, name="add"),
     path("favorites/", views.favorites, name="favorites"),
     path("coupons/", views.coupons, name="coupons"),
-    path("instruction/", views.instruction, name="instruction")
+    path("instruction/", views.instruction, name="instruction"),
+    path("edit/", views.editBusinesses, name="edit")
 ]
 
 #to render pictures for each business

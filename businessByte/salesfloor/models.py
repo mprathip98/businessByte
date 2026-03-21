@@ -3,6 +3,7 @@ from django.db import models
 # business model.
 class Businesses(models.Model):
     name = models.CharField(max_length=100)
+    owner = models.CharField(max_length=100, null=True)
     image = models.ImageField(upload_to='businesses/')
     category = models.CharField(max_length=100)
     description = models.CharField(max_length=250)

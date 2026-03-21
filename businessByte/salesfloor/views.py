@@ -121,6 +121,75 @@ def coupons(request):
 def instruction(request):
     return render(request, "instruction.html")
 
+
+
 def editBusinesses(request):
     allBusinesses = Businesses.objects.all
+
+    if request.method == "POST":
+        if request.POST.get("action") == "edit":
+            try:
+                newImage = request.POST["image"]
+            except:
+                newImage = ""
+
+            try:
+                newCategory = request.POST["category"]
+            except:
+                newCategory = ""
+
+            try:
+                newDescription = request.POST["description"]
+            except:
+                newDescription = ""
+
+            try:
+                newAddress = request.POST["address"]
+            except:
+                newAddress = ""
+
+            BusinessName = request.POST["name"]
+            print(BusinessName)
+            business = get_object_or_404(Businesses, name=BusinessName)
+            if newImage != "":
+                business.image = newImage
+            if newCategory != "":
+                business.category = newCategory
+            if newDescription != "":
+                business.description = newDescription
+            if newAddress != "":
+                business.address = newAddress
+            business.save()
+
+        if request.POST.get("action") == "delete":
+            BusinessName = request.POST["name"]
+            print(BusinessName)
+            business = get_object_or_404(Businesses, name=BusinessName)
+            business.delete()
+            messages.success(request, f"{BusinessName} Deleted")
+            return redirect("dashboard")
+
+
+
+
     return render(request, "edit.html", {"allBusinesses": allBusinesses})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,6 +17,8 @@
                         <h1 class="text-xl m-1 mt-2">{{item.name}}</h1>
 
                         <label for="{{item.name}}" class="btn btn-outline m-1"> Edit </label>
+
+
                         <input type="checkbox" id="{{item.name}}" class="modal-toggle" />
                         <div class="modal" role="dialog">
                             <div class="modal-box  max-w-xl">
@@ -24,14 +26,13 @@
                                 <form method="POST" >
                                     {% csrf_token %}
 
-                                    <h1 class="text-2xl font-bold" align="center"> Make a Change </h1><br><br>
+                                    <h1 class="text-2xl font-bold" align="center"> Make a Change for {{item.name}} </h1>
 
 
-                                    <label class="label ml-27 mb-1" required title="required">Business Name</label>
-                                    <div class="w-full flex justify-center items-center">
-                                        <input type="text" class="input"  placeholder="{{item.name}}" name="name" />
-                                    </div>
-                                    <br>
+                                    <div class="rating">
+                                        <input type="text" name="name" class=" input rating-hidden" checked value="{{ item.name }}"/>
+                                    </div><br>
+
 
                                     <label class="label ml-27 mb-1">Image</label>
                                     <div class="w-full flex justify-center items-center">
@@ -53,17 +54,21 @@
 
                                     <label class="label ml-27 mb-1">Description</label>
                                     <div class="w-full flex justify-center items-center">
-                                        <input type="text" class="input"  placeholder="{{item.description}}" name="description" />
+                                        <input type="text" class="input"  placeholder="{{item.description}}" name="description"/>
                                     </div>
                                     <br>
 
                                     <label class="label ml-27 mb-1">Address</label>
                                     <div class="w-full flex justify-center items-center">
-                                        <input type="text" class="input" placeholder="{{item.address}}" name="address"/>
+                                        <input type="text" class="input" placeholder="{{item.address}}" name="address" />
                                     </div>
                                     <br>
-                                    <button class="btn btn-neutral mt-5 btn-block" type="submit" align="center">Create</button>
+                                    <button class="btn btn-neutral mt-5 btn-block" type="submit" align="center" value="edit" name="action">Change</button>
                                 </form>
+
+
+
+
 
 
 
@@ -71,6 +76,13 @@
                             <label class="modal-backdrop" for="{{item.name}}"></label>
                         </div>
 
+                        <form method="POST" n>
+                            {% csrf_token %}
+                            <div class="rating">
+                                <input type="text" name="name" class=" input rating-hidden" checked value="{{ item.name }}"/>
+                            </div>
+                            <button class="btn btn-error m-1" value="delete" name="action"> Delete </button>
+                        </form>
 
                     </li>
 

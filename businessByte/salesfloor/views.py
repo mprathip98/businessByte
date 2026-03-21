@@ -120,3 +120,7 @@ def coupons(request):
 #rendering instructions page
 def instruction(request):
     return render(request, "instruction.html")
+
+def editBusinesses(request):
+    allBusinesses = Businesses.objects.all
+    return render(request, "edit.html", {"allBusinesses": allBusinesses})

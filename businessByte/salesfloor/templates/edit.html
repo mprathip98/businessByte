@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Neibor | Edit Businesses</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="flex justify-center m-15">
+        <ul class="list bg-base-100 rounded-box shadow-2xl w-150">
+            <li class="p-4 pb-2 text-lg opacity-60 tracking-wide m-1">Your Businesses</li>
+            {% for item in allBusinesses %}
+                {% if item.owner == user.username %}
+
+
+                    <li class="list-row">
+                        <div ><img src="{{item.image.url}}" class="rounded-full" width="70" height="70"></div>
+                        <h1 class="text-xl m-1 mt-2">{{item.name}}</h1>
+                        <button class="btn btn-outline m-1">Edit</button>
+                    </li>
+
+
+
+              {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}

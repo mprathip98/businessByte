@@ -15,7 +15,63 @@
                     <li class="list-row">
                         <div ><img src="{{item.image.url}}" class="rounded-full" width="70" height="70"></div>
                         <h1 class="text-xl m-1 mt-2">{{item.name}}</h1>
-                        <button class="btn btn-outline m-1">Edit</button>
+
+                        <label for="{{item.name}}" class="btn btn-outline m-1"> Edit </label>
+                        <input type="checkbox" id="{{item.name}}" class="modal-toggle" />
+                        <div class="modal" role="dialog">
+                            <div class="modal-box  max-w-xl">
+
+                                <form method="POST" >
+                                    {% csrf_token %}
+
+                                    <h1 class="text-2xl font-bold" align="center"> Make a Change </h1><br><br>
+
+
+                                    <label class="label ml-27 mb-1" required title="required">Business Name</label>
+                                    <div class="w-full flex justify-center items-center">
+                                        <input type="text" class="input"  placeholder="{{item.name}}" name="name" />
+                                    </div>
+                                    <br>
+
+                                    <label class="label ml-27 mb-1">Image</label>
+                                    <div class="w-full flex justify-center items-center">
+                                        <input type="file" class="file-input" accept="image/png, image/jpg, image/jpeg" name="image"/>
+                                    </div>
+                                    <br>
+
+                                    <label class="label ml-27 mb-1">Category</label>
+                                    <div class="w-full flex justify-center items-center">
+                                        <select class="select" name="category">
+                                            <option disabled selected>Pick a Category</option>
+                                            <option>Food</option>
+                                            <option>Retail</option>
+                                            <option>Services</option>
+                                        </select>
+
+                                    </div>
+                                    <br>
+
+                                    <label class="label ml-27 mb-1">Description</label>
+                                    <div class="w-full flex justify-center items-center">
+                                        <input type="text" class="input"  placeholder="{{item.description}}" name="description" />
+                                    </div>
+                                    <br>
+
+                                    <label class="label ml-27 mb-1">Address</label>
+                                    <div class="w-full flex justify-center items-center">
+                                        <input type="text" class="input" placeholder="{{item.address}}" name="address"/>
+                                    </div>
+                                    <br>
+                                    <button class="btn btn-neutral mt-5 btn-block" type="submit" align="center">Create</button>
+                                </form>
+
+
+
+                            </div>
+                            <label class="modal-backdrop" for="{{item.name}}"></label>
+                        </div>
+
+
                     </li>
 
 

@@ -170,8 +170,6 @@ def editBusinesses(request):
             return redirect("dashboard")
 
 
-
-
     return render(request, "edit.html", {"allBusinesses": allBusinesses})
 
 

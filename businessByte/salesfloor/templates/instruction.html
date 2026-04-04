@@ -37,37 +37,99 @@
 
         <div class="divider divider-horizontal m-5">OR</div>
 
-        <div class="card bg-base-200 w-full m-5 mt-10 mr-20 h-80">
+        <div class="card bg-base-200 w-full m-5 mt-10 mr-20 h-80 overflow-y-auto">
 
-            <h1 class="title bg-blue-200 text-2xl font-bold p-2" align="center"> Chatbot </h1>
-            <div class="chat chat-end m-5 mb-1">
-                <div class="chat-bubble">
 
-                    <!--question one-!--->
-                    <form method="POST">
-                        {% csrf_token %}
-                            <div class="rating">
-                                <input class="rating-hidden" checked type="radio" name="q1" value="favoriteQuestion1">
-                            </div>
-                        <button type="sumbit" name="action" value="favoriteQuestion">How do I add a business to my favorites?</button>
-                    </form>
+            <h1 class="title bg-blue-200 text-2xl font-bold p-2 sticky" align="center"> Chatbot </h1>
 
+
+            {% if answer != "" %}
+
+                <div class="chat chat-end m-5 mt-1">
+                    <div class="chat-bubble">
+                        {{question}}
+                    </div>
                 </div>
 
-            </div>
-            <div class="chat chat-end m-5 mt-1">
-                <div class="chat-bubble">
-                    <!--question two-!--->
 
-                    <form method="POST">
-                        {% csrf_token %}
-                            <div class="rating">
-                                <input class="rating-hidden" checked type="radio" name="q1" value="favoriteQuestion1">
-                            </div>
-                        <button type="sumbit" name="action" value="favoriteQuestion">How to create a business account?</button>
-                    </form>
+                <div class="chat chat-start m-5 mt-1">
+                    <div class="chat-bubble bg-">
+                        <!--question two-!--->
+                        {{answer}}
+                    </div>
                 </div>
-            </div>
+                {% if 1 == 1 %}
+                <div class="chat chat-end m-5 mb-1">
+                    <div class="btn btn-outline btn-primary">
+
+                        <!--question one-!--->
+                        <form method="POST">
+                            {% csrf_token %}
+                                <div class="rating">
+                                    <input class="rating-hidden" checked type="radio" name="q1" value="favoriteQuestion1">
+                                </div>
+                            <button type="sumbit" name="action" value="How do I add a business to my favorites?">How do I add a business to my favorites?</button>
+                        </form>
+
+                    </div>
+
+                </div>
+                <div class="chat chat-end m-5 mt-1">
+                    <div class="btn btn-outline btn-primary">
+                        <!--question two-!--->
+
+                        <form method="POST">
+                            {% csrf_token %}
+                                <div class="rating">
+                                    <input class="rating-hidden" checked type="radio" name="q1" value="favoriteQuestion2">
+                                </div>
+                            <button type="sumbit" name="action" value="How to create a business account?">How to create a business account?</button>
+                        </form>
+                    </div>
+                </div>
+                {% endif %}
+
+
+            {% else %}
+                <div class="chat chat-end m-5 mb-1">
+                    <div class="btn btn-outline btn-primary">
+
+                        <!--question one-!--->
+                        <form method="POST">
+                            {% csrf_token %}
+                                <div class="rating">
+                                    <input class="rating-hidden" checked type="radio" name="q1" value="favoriteQuestion1">
+                                </div>
+                            <button type="sumbit" name="action" value="How do I add a business to my favorites?">How do I add a business to my favorites?</button>
+                        </form>
+
+                    </div>
+
+                </div>
+                <div class="chat chat-end m-5 mt-1">
+                    <div class="btn btn-outline btn-primary">
+                        <!--question two-!--->
+
+                        <form method="POST">
+                            {% csrf_token %}
+                                <div class="rating">
+                                    <input class="rating-hidden" checked type="radio" name="q1" value="favoriteQuestion2">
+                                </div>
+                            <button type="sumbit" name="action" value="How to create a business account?">How to create a business account?</button>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="chat chat-start m-5 mt-1">
+                    <div class="chat-bubble bg-">
+                        <!--question two-!--->
+                        {{answer}}
+                    </div>
+                </div>
+            {% endif %}
+
+
 
         </div>
 

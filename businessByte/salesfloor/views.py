@@ -119,7 +119,16 @@ def coupons(request):
 
 #rendering instructions page
 def instruction(request):
-    return render(request, "instruction.html")
+    answer=""
+    question = ""
+    if request.method == "POST":
+        if request.POST.get("action") == "How do I add a business to my favorites?":
+            answer = "It's quite simple! Just hit 'Learn More' for the business that you would like to add to favorites. Then, hit the 'Favorite' button under the picture! Navigate to your favorites pages, and this business should be there!"
+            question = request.POST.get("action")
+        elif request.POST.get("action") == "How to create a business account?":
+            answer = "Contact 'customerservice@neibor.com' to get your business account created!"
+            question = request.POST.get("action")
+    return render(request, "instruction.html", {"answer": answer, "question": question})
 
 
 

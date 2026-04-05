@@ -14,10 +14,10 @@ from .models import userFavoritesBusiness
 def initial(request):
     return render(request, "home.html")
 
-
 #dashboard view
 def dashboard(request):
     if request.user.is_authenticated:
+        #retrieves all the businesses in the database into this list
         allBusinesses = Businesses.objects.all
         number_range = range(1, 6)
         #the first if statement for the ratings for each business
@@ -91,6 +91,7 @@ def add(request):
         else:
             return render(request, "add.html")
     else:
+            #redirects the user back to the home page if they are not logged in
             return redirect("home")
 
 #this is for the favorites page

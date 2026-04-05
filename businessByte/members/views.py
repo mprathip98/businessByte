@@ -14,7 +14,10 @@ def login_user(request):
         if user is not None:
             login(request, user)
             messages.success(request, "Login Successful")
-            return redirect('dashboard')
+            if request.user.is_staff:
+                return redirect("edit")
+            else:
+                return redirect('dashboard')
 
         else:
             messages.error(request, "Invalid Username or Password. Try Again.")
